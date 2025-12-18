@@ -1,6 +1,6 @@
 {
-  "name": "openblock-desktop",
-  "productName": "OpenBlockDesktop",
+  "name": "flowlence-desktop",
+  "productName": "Flowlence Desktop",
   "description": "OpenBlock as a self-contained desktop application",
   "author": "Openblock.cc Team <contact@openblock.cc> (http://www.openblock.cc/)",
   "version": "2.6.3",
