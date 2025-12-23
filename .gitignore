@@ -32,3 +32,4 @@ npm-*
 # generated translation files
 /translations
 /locale
+.claude/
