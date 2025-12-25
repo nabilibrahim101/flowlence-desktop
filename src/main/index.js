@@ -76,7 +76,7 @@ const displayPermissionDeniedWarning = (browserWindow, permissionType) => {
         message = formatMessage({
             id: 'index.cameraPermissionDeniedMessage',
             default: 'Permission to use the camera has been denied. ' +
-                'OpenBlock will not be able to take a photo or use video sensing blocks.',
+                'Flowlence will not be able to take a photo or use video sensing blocks.',
             description: 'message for camera permission denied'
         });
         break;
@@ -89,7 +89,7 @@ const displayPermissionDeniedWarning = (browserWindow, permissionType) => {
         message = formatMessage({
             id: 'index.microphonePermissionDeniedMessage',
             default: 'Permission to use the microphone has been denied. ' +
-                    'OpenBlock will not be able to record sounds or detect loudness.',
+                    'Flowlence will not be able to record sounds or detect loudness.',
             description: 'message for microphone permission denied'
         });
         break;
@@ -111,14 +111,14 @@ const displayPermissionDeniedWarning = (browserWindow, permissionType) => {
     case 'darwin':
         instructions = formatMessage({
             id: 'index.darwinPermissionDeniedInstructions',
-            default: 'To change OpenBlock permissions, please check "Security & Privacy" in System Preferences.',
+            default: 'To change Flowlence permissions, please check "Security & Privacy" in System Preferences.',
             description: 'prompt for fix darwin permission denied instructions'
         });
         break;
     default:
         instructions = formatMessage({
             id: 'index.permissionDeniedInstructions',
-            default: 'To change OpenBlock permissions, please check your system settings and restart OpenBlock.',
+            default: 'To change Flowlence permissions, please check your system settings and restart Flowlence.',
             description: 'prompt for fix permission denied instructions'
         });
         break;

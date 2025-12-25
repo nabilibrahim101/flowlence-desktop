@@ -1,7 +1,5 @@
 !include x64.nsh
 !include LogicLib.nsh
-!include StrFunc.nsh
-${StrRep}
 
 !macro preInit
 
@@ -9,24 +7,15 @@ ${StrRep}
         SetRegView 64
     ${EndIf}
 
-    ${StrRep} $0 "${UNINSTALL_REGISTRY_KEY}" "Software" "SOFTWARE"
-    ${StrRep} $1 "${INSTALL_REGISTRY_KEY}" "Software" "SOFTWARE"
+    ; Always set the default install location to Program Files\Flowlence
+    ${If} ${RunningX64}
+        WriteRegExpandStr HKLM "${INSTALL_REGISTRY_KEY}" InstallLocation "$PROGRAMFILES64\Flowlence"
+        WriteRegExpandStr HKCU "${INSTALL_REGISTRY_KEY}" InstallLocation "$PROGRAMFILES64\Flowlence"
+    ${Else}
+        WriteRegExpandStr HKLM "${INSTALL_REGISTRY_KEY}" InstallLocation "$PROGRAMFILES\Flowlence"
+        WriteRegExpandStr HKCU "${INSTALL_REGISTRY_KEY}" InstallLocation "$PROGRAMFILES\Flowlence"
+    ${EndIf}
 
-    ReadRegStr $R0 HKCU "$0" "UninstallString"
-    ReadRegStr $R1 HKCU "$1" "InstallLocation"
-
-    StrCmp $R0 "" 0 +4
-
-    ReadRegStr $R0 HKLM "$0" "UninstallString"
-    ReadRegStr $R1 HKLM "$1" "InstallLocation"
-
-    StrCmp $R0 "" 0 done
-    StrCmp $R1 "" 0 done
-
-    WriteRegExpandStr HKLM "${INSTALL_REGISTRY_KEY}" InstallLocation "C:\OpenBlockDesktop"
-    WriteRegExpandStr HKCU "${INSTALL_REGISTRY_KEY}" InstallLocation "C:\OpenBlockDesktop"
-
-done:
     ${If} ${RunningX64}
         SetRegView LastUsed
     ${EndIf}

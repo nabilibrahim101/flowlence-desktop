@@ -24,7 +24,9 @@
     "build:dist": "npm run compile && npm run doBuild -- --mode=dist",
     "build:publish": "npm run compile && npm run doBuild -- --mode=publish",
     "doBuild": "node ./scripts/electron-builder-wrapper.js",
+    "cleanup:esp32": "node ./scripts/cleanup-for-esp32-only.js",
     "dist": "npm run clean && npm run compile && npm run fetch:all && npm run doBuild -- --mode=dist",
+    "dist:lite": "npm run clean && npm run compile && npm run fetch:all && npm run cleanup:esp32 && npm run doBuild -- --mode=dist",
     "publish": "npm run clean && npm run compile && npm run fetch:all  && npm run doBuild -- --mode=publish",
     "test": "npm run test:lint",
     "test:lint": "eslint --cache --color --ext .jsx,.js src scripts"

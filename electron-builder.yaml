@@ -3,17 +3,17 @@ directories:
   output: dist
 extraFiles: ['LICENSE', 'LICENSE.ScratchFoundation', 'TRADEMARK', "tools", "external-resources", 'firmwares', "drivers"]
 
-appId: openblock.cc.openblock-desktop
-productName: "OpenBlockDesktop"
+appId: com.flowlence.desktop
+productName: "Flowlence"
 publish:
   - provider: github
-artifactName: "OpenBlock-Desktop_v${version}_${os}_${arch}.${ext}"
+artifactName: "Flowlence_Setup_v${version}_${os}_${arch}.${ext}"
 
 fileAssociations:
   ext: ob
-  name: OpenBlock project file
+  name: Flowlence project file
   role: Editor
-  icon: buildResources/OpenBlockFile.ico
+  icon: buildResources/FlowlenceFile.ico
 
 compression: maximum
 
@@ -27,26 +27,26 @@ mac:
         This app requires microphone access when recording sounds or detecting loudness.
   gatekeeperAssess: true
   hardenedRuntime: true
-  icon: buildResources/OpenBlockDesktop.icns
+  icon: buildResources/FlowlenceDesktop.icns
   provisioningProfile: embedded.provisionprofile
   target:
     - dmg
     # - mas
 dmg:
-  title: "OpenBlock-Desktop_${version}"
+  title: "Flowlence_${version}"
   format: UDRO
 # mas:
 #   category: public.app-category.education
 #   entitlements: buildResources/entitlements.mas.plist
 #   entitlementsInherit: buildResources/entitlements.mas.inherit.plist
 #   hardenedRuntime: false
-#   icon: buildResources/OpenBlockDesktop.icns
+#   icon: buildResources/FlowlenceDesktop.icns
 # masDev:
 #   type: development
 #   provisioningProfile: mas-dev.provisionprofile
 
 win:
-  icon: buildResources/OpenBlockDesktop.ico
+  icon: buildResources/FlowlenceDesktop.ico
   target:
     # - appx
     - nsis
@@ -67,8 +67,8 @@ linux:
   desktop:
     entry:
       Encoding: UTF-8
-      Name: OpenBlockDesktop
-      Icon: openblock-desktop
+      Name: Flowlence
+      Icon: flowlence
       Type: Application
       Terminal: false
   target:
