@@ -7,13 +7,13 @@
         SetRegView 64
     ${EndIf}
 
-    ; Always set the default install location to Program Files\Flowlence
+    ; Always set the default install location to Program Files\Flowlence Desktop
     ${If} ${RunningX64}
-        WriteRegExpandStr HKLM "${INSTALL_REGISTRY_KEY}" InstallLocation "$PROGRAMFILES64\Flowlence"
-        WriteRegExpandStr HKCU "${INSTALL_REGISTRY_KEY}" InstallLocation "$PROGRAMFILES64\Flowlence"
+        WriteRegExpandStr HKLM "${INSTALL_REGISTRY_KEY}" InstallLocation "$PROGRAMFILES64\Flowlence Desktop"
+        WriteRegExpandStr HKCU "${INSTALL_REGISTRY_KEY}" InstallLocation "$PROGRAMFILES64\Flowlence Desktop"
     ${Else}
-        WriteRegExpandStr HKLM "${INSTALL_REGISTRY_KEY}" InstallLocation "$PROGRAMFILES\Flowlence"
-        WriteRegExpandStr HKCU "${INSTALL_REGISTRY_KEY}" InstallLocation "$PROGRAMFILES\Flowlence"
+        WriteRegExpandStr HKLM "${INSTALL_REGISTRY_KEY}" InstallLocation "$PROGRAMFILES\Flowlence Desktop"
+        WriteRegExpandStr HKCU "${INSTALL_REGISTRY_KEY}" InstallLocation "$PROGRAMFILES\Flowlence Desktop"
     ${EndIf}
 
     ${If} ${RunningX64}

@@ -4,14 +4,16 @@ directories:
 extraFiles: ['LICENSE', 'LICENSE.ScratchFoundation', 'TRADEMARK', "tools", "external-resources", 'firmwares', "drivers"]
 
 appId: com.flowlence.desktop
-productName: "Flowlence"
+productName: "Flowlence Desktop"
 publish:
   - provider: github
-artifactName: "Flowlence_Setup_v${version}_${os}_${arch}.${ext}"
+    owner: nabilibrahim101
+    repo: flowlence-desktop
+artifactName: "Flowlence_Desktop_v${version}_${os}_${arch}.${ext}"
 
 fileAssociations:
   ext: ob
-  name: Flowlence project file
+  name: Flowlence Desktop project file
   role: Editor
   icon: buildResources/FlowlenceFile.ico
 
@@ -33,7 +35,7 @@ mac:
     - dmg
     # - mas
 dmg:
-  title: "Flowlence_${version}"
+  title: "Flowlence_Desktop_${version}"
   format: UDRO
 # mas:
 #   category: public.app-category.education
@@ -67,8 +69,8 @@ linux:
   desktop:
     entry:
       Encoding: UTF-8
-      Name: Flowlence
-      Icon: flowlence
+      Name: Flowlence Desktop
+      Icon: flowlence-desktop
       Type: Application
       Terminal: false
   target:

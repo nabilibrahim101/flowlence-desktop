@@ -10,9 +10,9 @@ import ScratchFoundationLogo from '../icon/logo-ScratchFoundation.svg';
 // Insert new copyright information at the head of the array to add a new copyright notice
 const copyrightInformations = [
     {
-        id: 'OpenBlock.cc',
+        id: 'Flowlence',
         logo: OpenBlockLogo,
-        link: 'https://www.openblock.cc/',
+        link: 'https://flowlence.com/',
         license: 'MIT'
     },
     {

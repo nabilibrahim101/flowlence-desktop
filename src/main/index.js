@@ -410,13 +410,13 @@ const createMainWindow = () => {
             type: 'question',
             message: formatMessage({
                 id: 'index.questionLeave',
-                default: 'Leave Openblock?',
-                description: 'prompt for leave Openblock'
+                default: 'Leave Flowlence Desktop?',
+                description: 'prompt for leave Flowlence Desktop'
             }),
             detail: formatMessage({
                 id: 'index.questionLeaveDetail',
                 default: 'Any unsaved changes will be lost.',
-                description: 'detail prompt for leave Openblock'
+                description: 'detail prompt for leave Flowlence Desktop'
             }),
             buttons: [
                 formatMessage({

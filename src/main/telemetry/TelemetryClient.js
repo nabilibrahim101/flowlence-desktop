@@ -18,10 +18,11 @@ import {
 
 /**
   * Default telemetry service URLs
+  * NOTE: Telemetry is currently disabled. To enable, set production URL to your telemetry server.
   */
 const TelemetryServerURL = Object.freeze({
     staging: '',
-    production: 'https://telemetry.openblock.cc/'
+    production: '' // Disabled - was 'https://telemetry.openblock.cc/'
 });
 const DefaultServerURL = (
     process.env.NODE_ENV === 'production' ? TelemetryServerURL.production : TelemetryServerURL.staging

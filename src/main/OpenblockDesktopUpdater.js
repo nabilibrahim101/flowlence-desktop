@@ -194,7 +194,7 @@ class OpenblockDesktopUpdater {
         });
 
         const openDownloadPage = () => {
-            shell.openExternal('https://wiki.openblock.cc/install-desktop-version');
+            shell.openExternal('https://wiki.flowlence.com/install-desktop-version');
         };
 
         if (process.platform === 'darwin') {
