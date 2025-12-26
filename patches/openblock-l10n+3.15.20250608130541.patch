@@ -1,0 +1,39 @@
+diff --git a/node_modules/openblock-l10n/editor/interface/en.json b/node_modules/openblock-l10n/editor/interface/en.json
+index 99cc234..0e7463c 100644
+--- a/node_modules/openblock-l10n/editor/interface/en.json
++++ b/node_modules/openblock-l10n/editor/interface/en.json
+@@ -608,7 +608,7 @@
+     "gui.sharedMessages.replaceProjectWarning": "Replace contents of the current project?",
+     "gui.sharedMessages.clearCacheWarning": "Make sure you want to clear cache and restart?",
+     "gui.sharedMessages.loadFromComputerTitle": "Load from your computer",
+-    "gui.gui.defaultProjectTitle": "OpenBlock Project",
++    "gui.gui.defaultProjectTitle": "Flowlence Project",
+     "gui.desktopMenuBar.about": "About",
+     "gui.desktopMenuBar.license": "License",
+     "gui.menuBar.privacyPolicy": "Privacy policy",
+diff --git a/node_modules/openblock-l10n/locales/editor-msgs.js b/node_modules/openblock-l10n/locales/editor-msgs.js
+index 8acb754..e658912 100644
+--- a/node_modules/openblock-l10n/locales/editor-msgs.js
++++ b/node_modules/openblock-l10n/locales/editor-msgs.js
+@@ -610,7 +610,7 @@ export default {
+     "gui.sharedMessages.replaceProjectWarning": "Replace contents of the current project?",
+     "gui.sharedMessages.clearCacheWarning": "Make sure you want to clear cache and restart?",
+     "gui.sharedMessages.loadFromComputerTitle": "Load from your computer",
+-    "gui.gui.defaultProjectTitle": "OpenBlock Project",
++    "gui.gui.defaultProjectTitle": "Flowlence Project",
+     "gui.desktopMenuBar.about": "About",
+     "gui.desktopMenuBar.license": "License",
+     "gui.menuBar.privacyPolicy": "Privacy policy",
+diff --git a/node_modules/openblock-l10n/locales/interface-msgs.js b/node_modules/openblock-l10n/locales/interface-msgs.js
+index b692314..f98d03b 100644
+--- a/node_modules/openblock-l10n/locales/interface-msgs.js
++++ b/node_modules/openblock-l10n/locales/interface-msgs.js
+@@ -610,7 +610,7 @@ export default {
+     "gui.sharedMessages.replaceProjectWarning": "Replace contents of the current project?",
+     "gui.sharedMessages.clearCacheWarning": "Make sure you want to clear cache and restart?",
+     "gui.sharedMessages.loadFromComputerTitle": "Load from your computer",
+-    "gui.gui.defaultProjectTitle": "OpenBlock Project",
++    "gui.gui.defaultProjectTitle": "Flowlence Project",
+     "gui.desktopMenuBar.about": "About",
+     "gui.desktopMenuBar.license": "License",
+     "gui.menuBar.privacyPolicy": "Privacy policy",

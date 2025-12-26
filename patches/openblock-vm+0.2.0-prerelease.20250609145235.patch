@@ -1,0 +1,166 @@
+diff --git a/node_modules/openblock-vm/dist/node/openblock-vm.js b/node_modules/openblock-vm/dist/node/openblock-vm.js
+index 0c5b7a1..900514d 100644
+--- a/node_modules/openblock-vm/dist/node/openblock-vm.js
++++ b/node_modules/openblock-vm/dist/node/openblock-vm.js
+@@ -14009,7 +14009,7 @@ var OpenBlockArduinoEsp32Device = /*#__PURE__*/function () {
+             },
+             VALUE: {
+               type: ArgumentType.STRING,
+-              defaultValue: 'Hello OpenBlock'
++              defaultValue: 'Hello Flowlence'
+             },
+             EOL: {
+               type: ArgumentType.STRING,
+@@ -15131,7 +15131,7 @@ var OpenBlockArduinoEsp32S3Device = /*#__PURE__*/function () {
+             },
+             VALUE: {
+               type: ArgumentType.STRING,
+-              defaultValue: 'Hello OpenBlock'
++              defaultValue: 'Hello Flowlence'
+             },
+             EOL: {
+               type: ArgumentType.STRING,
+@@ -16149,7 +16149,7 @@ var OpenBlockArduinoEsp8266Device = /*#__PURE__*/function () {
+           arguments: {
+             VALUE: {
+               type: ArgumentType.STRING,
+-              defaultValue: 'Hello OpenBlock'
++              defaultValue: 'Hello Flowlence'
+             },
+             EOL: {
+               type: ArgumentType.STRING,
+@@ -17426,7 +17426,7 @@ var OpenBlockArduinoK210Device = /*#__PURE__*/function () {
+             },
+             VALUE: {
+               type: ArgumentType.STRING,
+-              defaultValue: 'Hello OpenBlock'
++              defaultValue: 'Hello Flowlence'
+             },
+             EOL: {
+               type: ArgumentType.STRING,
+@@ -18647,7 +18647,7 @@ var OpenBlockArduinoLeonardoDevice = /*#__PURE__*/function () {
+           arguments: {
+             VALUE: {
+               type: ArgumentType.STRING,
+-              defaultValue: 'Hello OpenBlock'
++              defaultValue: 'Hello Flowlence'
+             },
+             EOL: {
+               type: ArgumentType.STRING,
+@@ -20062,7 +20062,7 @@ var OpenBlockArduinoMega2560Device = /*#__PURE__*/function () {
+             },
+             VALUE: {
+               type: ArgumentType.STRING,
+-              defaultValue: 'Hello OpenBlock'
++              defaultValue: 'Hello Flowlence'
+             },
+             EOL: {
+               type: ArgumentType.STRING,
+@@ -21057,7 +21057,7 @@ var OpenBlockArduinoRaspberryPiPicoDevice = /*#__PURE__*/function () {
+             },
+             VALUE: {
+               type: ArgumentType.STRING,
+-              defaultValue: 'Hello OpenBlock'
++              defaultValue: 'Hello Flowlence'
+             },
+             EOL: {
+               type: ArgumentType.STRING,
+@@ -22053,7 +22053,7 @@ var OpenBlockArduinoRaspberryPiPico2Device = /*#__PURE__*/function () {
+             },
+             VALUE: {
+               type: ArgumentType.STRING,
+-              defaultValue: 'Hello OpenBlock'
++              defaultValue: 'Hello Flowlence'
+             },
+             EOL: {
+               type: ArgumentType.STRING,
+@@ -23049,7 +23049,7 @@ var OpenBlockArduinoRaspberryPiPico2WDevice = /*#__PURE__*/function () {
+             },
+             VALUE: {
+               type: ArgumentType.STRING,
+-              defaultValue: 'Hello OpenBlock'
++              defaultValue: 'Hello Flowlence'
+             },
+             EOL: {
+               type: ArgumentType.STRING,
+@@ -24045,7 +24045,7 @@ var OpenBlockArduinoRaspberryPiPicoWDevice = /*#__PURE__*/function () {
+             },
+             VALUE: {
+               type: ArgumentType.STRING,
+-              defaultValue: 'Hello OpenBlock'
++              defaultValue: 'Hello Flowlence'
+             },
+             EOL: {
+               type: ArgumentType.STRING,
+@@ -25163,7 +25163,7 @@ var OpenBlockArduinoUnoDevice = /*#__PURE__*/function () {
+           arguments: {
+             VALUE: {
+               type: ArgumentType.STRING,
+-              defaultValue: 'Hello OpenBlock'
++              defaultValue: 'Hello Flowlence'
+             },
+             EOL: {
+               type: ArgumentType.STRING,
+@@ -26280,7 +26280,7 @@ var OpenBlockArduinoUnoR4MinimaDevice = /*#__PURE__*/function () {
+           arguments: {
+             VALUE: {
+               type: ArgumentType.STRING,
+-              defaultValue: 'Hello OpenBlock'
++              defaultValue: 'Hello Flowlence'
+             },
+             EOL: {
+               type: ArgumentType.STRING,
+@@ -27235,7 +27235,7 @@ var OpenBlockArduinoUnoR4WifiDevice = /*#__PURE__*/function () {
+           arguments: {
+             TEXT: {
+               type: ArgumentType.STRING,
+-              defaultValue: 'Hello OpenBlock'
++              defaultValue: 'Hello Flowlence'
+             }
+           }
+         }, {
+@@ -27312,7 +27312,7 @@ var OpenBlockArduinoUnoR4WifiDevice = /*#__PURE__*/function () {
+           arguments: {
+             VALUE: {
+               type: ArgumentType.STRING,
+-              defaultValue: 'Hello OpenBlock'
++              defaultValue: 'Hello Flowlence'
+             },
+             EOL: {
+               type: ArgumentType.STRING,
+@@ -29139,7 +29139,7 @@ var OpenBlockMicrobitDevice = /*#__PURE__*/function () {
+           arguments: {
+             TEXT: {
+               type: ArgumentType.STRING,
+-              defaultValue: 'Hello OpenBlock'
++              defaultValue: 'Hello Flowlence'
+             }
+           }
+         }, {
+@@ -29153,7 +29153,7 @@ var OpenBlockMicrobitDevice = /*#__PURE__*/function () {
+           arguments: {
+             TEXT: {
+               type: ArgumentType.STRING,
+-              defaultValue: 'Hello OpenBlock'
++              defaultValue: 'Hello Flowlence'
+             }
+           }
+         }, '---', {
+@@ -29385,7 +29385,7 @@ var OpenBlockMicrobitDevice = /*#__PURE__*/function () {
+           arguments: {
+             TEXT: {
+               type: ArgumentType.STRING,
+-              defaultValue: 'Hello OpenBlock'
++              defaultValue: 'Hello Flowlence'
+             }
+           }
+         }, {
+@@ -29439,7 +29439,7 @@ var OpenBlockMicrobitDevice = /*#__PURE__*/function () {
+           arguments: {
+             TEXT: {
+               type: ArgumentType.STRING,
+-              defaultValue: 'Hello OpenBlock'
++              defaultValue: 'Hello Flowlence'
+             }
+           }
+         }],
