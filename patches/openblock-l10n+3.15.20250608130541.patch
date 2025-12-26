@@ -37,3 +37,16 @@ index b692314..f98d03b 100644
      "gui.desktopMenuBar.about": "About",
      "gui.desktopMenuBar.license": "License",
      "gui.menuBar.privacyPolicy": "Privacy policy",
+diff --git a/node_modules/openblock-l10n/src/supported-locales.js b/node_modules/openblock-l10n/src/supported-locales.js
+index 0c67fc4..39946ac 100644
+--- a/node_modules/openblock-l10n/src/supported-locales.js
++++ b/node_modules/openblock-l10n/src/supported-locales.js
+@@ -5,7 +5,7 @@
+ 
+ const locales = {
+     // 'ab': {name: 'Аҧсшәа'},
+-    // 'ar': {name: 'العربية'},
++    'ar': {name: 'العربية'},
+     // 'am': {name: 'አማርኛ'},
+     // 'az': {name: 'Azeri'},
+     // 'id': {name: 'Bahasa Indonesia'},
