@@ -3,7 +3,7 @@
   "productName": "Flowlence Desktop",
   "description": "Flowlence Desktop - Block-based coding for IoT and Robotics",
   "author": "Flowlence",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "scripts": {
     "postinstall": "patch-package && electron-builder install-app-deps",

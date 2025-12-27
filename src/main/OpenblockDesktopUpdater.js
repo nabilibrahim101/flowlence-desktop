@@ -1,4 +1,4 @@
-import {app, dialog, shell} from 'electron';
+import {app, BrowserWindow, dialog, shell} from 'electron';
 import {autoUpdater, CancellationToken} from 'electron-updater';
 import log from 'electron-log';
 import bytes from 'bytes';
@@ -306,7 +306,14 @@ class OpenblockDesktopUpdater {
                     this.reportUpdateState({phase: UPDATE_MODAL_STATE.applicationDownloadFinish});
                     setTimeout(() => {
                         console.log(`INFO: App will quit and install after 3 seconds`);
-                        autoUpdater.quitAndInstall();
+                        // Force close all windows to prevent "cannot be closed" error on Windows
+                        const allWindows = BrowserWindow.getAllWindows();
+                        allWindows.forEach(win => {
+                            win.removeAllListeners('close');
+                            win.close();
+                        });
+                        // Force quit and install (isSilent=false, isForceRunAfter=true)
+                        autoUpdater.quitAndInstall(false, true);
                     }, 1000 * 3);
                 });
             });
