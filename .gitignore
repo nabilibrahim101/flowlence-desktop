@@ -33,3 +33,7 @@ npm-*
 /translations
 /locale
 .claude/
+
+# Build artifacts
+compile_log.txt
+nul
