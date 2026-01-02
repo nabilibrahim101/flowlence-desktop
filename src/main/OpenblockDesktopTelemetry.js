@@ -19,10 +19,16 @@ const EVENT_TEMPLATE = {
     }
 };
 
-const APP_ID = 'openblock-desktop';
-const APP_VERSION = app.getVersion();
-const APP_INFO = Object.freeze({
-    projectName: `${APP_ID} ${APP_VERSION}`
+const APP_ID = 'flowlence-desktop';
+const getAppVersion = () => {
+    try {
+        return app.getVersion();
+    } catch (e) {
+        return version; // fallback to package.json version
+    }
+};
+const getAppInfo = () => Object.freeze({
+    projectName: `${APP_ID} ${getAppVersion()}`
 });
 
 class ScratchDesktopTelemetry {
@@ -38,11 +44,11 @@ class ScratchDesktopTelemetry {
     }
 
     appWasOpened () {
-        this._telemetryClient.addEvent('app::open', {...EVENT_TEMPLATE, ...APP_INFO});
+        this._telemetryClient.addEvent('app::open', {...EVENT_TEMPLATE, ...getAppInfo()});
     }
 
     appWillClose () {
-        this._telemetryClient.addEvent('app::close', {...EVENT_TEMPLATE, ...APP_INFO});
+        this._telemetryClient.addEvent('app::close', {...EVENT_TEMPLATE, ...getAppInfo()});
     }
 
     projectDidLoad (metadata = {}) {
@@ -90,28 +96,31 @@ class ScratchDesktopTelemetry {
 // make a singleton so it's easy to share across both Electron processes
 const scratchDesktopTelemetrySingleton = new ScratchDesktopTelemetry();
 
-// `handle` works with `invoke`
-ipcMain.handle('getTelemetryDidOptIn', () =>
-    scratchDesktopTelemetrySingleton.didOptIn
-);
-// `on` works with `sendSync` (and `send`)
-ipcMain.on('getTelemetryDidOptIn', event => {
-    event.returnValue = scratchDesktopTelemetrySingleton.didOptIn;
-});
-ipcMain.on('setTelemetryDidOptIn', (event, arg) => {
-    scratchDesktopTelemetrySingleton.didOptIn = arg;
-});
-ipcMain.on('projectDidLoad', (event, arg) => {
-    scratchDesktopTelemetrySingleton.projectDidLoad(arg);
-});
-ipcMain.on('projectDidSave', (event, arg) => {
-    scratchDesktopTelemetrySingleton.projectDidSave(arg);
-});
-ipcMain.on('projectWasCreated', (event, arg) => {
-    scratchDesktopTelemetrySingleton.projectWasCreated(arg);
-});
-ipcMain.on('projectWasUploaded', (event, arg) => {
-    scratchDesktopTelemetrySingleton.projectWasUploaded(arg);
-});
+// Set up IPC handlers only if ipcMain is available (main process only)
+if (ipcMain) {
+    // `handle` works with `invoke`
+    ipcMain.handle('getTelemetryDidOptIn', () =>
+        scratchDesktopTelemetrySingleton.didOptIn
+    );
+    // `on` works with `sendSync` (and `send`)
+    ipcMain.on('getTelemetryDidOptIn', event => {
+        event.returnValue = scratchDesktopTelemetrySingleton.didOptIn;
+    });
+    ipcMain.on('setTelemetryDidOptIn', (event, arg) => {
+        scratchDesktopTelemetrySingleton.didOptIn = arg;
+    });
+    ipcMain.on('projectDidLoad', (event, arg) => {
+        scratchDesktopTelemetrySingleton.projectDidLoad(arg);
+    });
+    ipcMain.on('projectDidSave', (event, arg) => {
+        scratchDesktopTelemetrySingleton.projectDidSave(arg);
+    });
+    ipcMain.on('projectWasCreated', (event, arg) => {
+        scratchDesktopTelemetrySingleton.projectWasCreated(arg);
+    });
+    ipcMain.on('projectWasUploaded', (event, arg) => {
+        scratchDesktopTelemetrySingleton.projectWasUploaded(arg);
+    });
+}
 
 export default scratchDesktopTelemetrySingleton;

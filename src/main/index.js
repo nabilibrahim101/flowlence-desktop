@@ -20,19 +20,22 @@ import formatMessage from 'format-message';
 import locales from 'openblock-l10n/locales/desktop-msgs';
 
 const storage = new ElectronStore();
-const desktopLink = new DesktopLink();
+let desktopLink = null; // Will be initialized when app is ready
 
 formatMessage.setup({translations: locales});
 
-// suppress deprecation warning; this will be the default in Electron 9
-app.allowRendererProcessReuse = true;
+// Configure app settings if app is available
+if (app) {
+    // suppress deprecation warning; this will be the default in Electron 9
+    app.allowRendererProcessReuse = true;
 
-// allow connect to localhost
-app.commandLine.appendSwitch('allow-insecure-localhost', 'true');
+    // allow connect to localhost
+    app.commandLine.appendSwitch('allow-insecure-localhost', 'true');
 
-// enable gpu and ignore gpu blacklist
-app.commandLine.hasSwitch('enable-gpu');
-app.commandLine.hasSwitch('ignore-gpu-blacklist');
+    // enable gpu and ignore gpu blacklist
+    app.commandLine.hasSwitch('enable-gpu');
+    app.commandLine.hasSwitch('ignore-gpu-blacklist');
+}
 
 telemetry.appWasOpened();
 
@@ -61,7 +64,9 @@ const _windows = {};
 
 // enable connecting to Scratch Link even if we DNS / Internet access is not available
 // this must happen BEFORE the app ready event!
-app.commandLine.appendSwitch('host-resolver-rules', 'MAP device-manager.scratch.mit.edu 127.0.0.1');
+if (app) {
+    app.commandLine.appendSwitch('host-resolver-rules', 'MAP device-manager.scratch.mit.edu 127.0.0.1');
+}
 
 const displayPermissionDeniedWarning = (browserWindow, permissionType) => {
     let title;
@@ -475,32 +480,35 @@ const createMainWindow = () => {
     return window;
 };
 
-if (process.platform === 'darwin') {
-    const osxMenu = Menu.buildFromTemplate(MacOSMenu(app));
-    Menu.setApplicationMenu(osxMenu);
-} else {
-    // disable menu for other platforms
-    Menu.setApplicationMenu(null);
-}
-
-// quit application when all windows are closed
-app.on('window-all-closed', () => {
-    app.quit();
-});
-
-app.on('will-quit', () => {
-    telemetry.appWillClose();
-});
-
-app.on('activate', () => {
-    if (_windows.main === null) {
-        createMainWindow();
+// Set up menus and event handlers if app and Menu are available
+if (app && Menu) {
+    if (process.platform === 'darwin') {
+        const osxMenu = Menu.buildFromTemplate(MacOSMenu(app));
+        Menu.setApplicationMenu(osxMenu);
+    } else {
+        // disable menu for other platforms
+        Menu.setApplicationMenu(null);
     }
-});
+
+    // quit application when all windows are closed
+    app.on('window-all-closed', () => {
+        app.quit();
+    });
+
+    app.on('will-quit', () => {
+        telemetry.appWillClose();
+    });
+
+    app.on('activate', () => {
+        if (_windows.main === null) {
+            createMainWindow();
+        }
+    });
+}
 
 // work around https://github.com/MarshallOfSound/electron-devtools-installer/issues/122
 // which seems to be a result of https://github.com/electron/electron/issues/19468
-if (process.platform === 'win32') {
+if (app && process.platform === 'win32') {
     const appUserDataPath = app.getPath('userData');
     const devToolsExtensionsPath = path.join(appUserDataPath, 'DevTools Extensions');
     try {
@@ -511,7 +519,10 @@ if (process.platform === 'win32') {
 }
 
 // create main BrowserWindow when electron is ready
-app.on('ready', () => {
+if (app) app.on('ready', () => {
+    // Initialize DesktopLink now that app is ready
+    desktopLink = new DesktopLink();
+
     if (isDevelopment) {
         import('electron-devtools-installer').then(importedModule => {
             const {default: installExtension, ...devToolsExtensions} = importedModule;
@@ -580,21 +591,24 @@ app.on('ready', () => {
     });
 });
 
-ipcMain.on('open-about-window', () => {
-    _windows.about.show();
-});
+// Set up IPC handlers if ipcMain is available
+if (ipcMain) {
+    ipcMain.on('open-about-window', () => {
+        _windows.about.show();
+    });
 
-ipcMain.on('open-license-window', () => {
-    _windows.license.show();
-});
+    ipcMain.on('open-license-window', () => {
+        _windows.license.show();
+    });
 
-ipcMain.on('open-privacy-policy-window', () => {
-    _windows.privacy.show();
-});
+    ipcMain.on('open-privacy-policy-window', () => {
+        _windows.privacy.show();
+    });
 
-ipcMain.on('set-locale', (event, arg) => {
-    formatMessage.setup({locale: arg});
-});
+    ipcMain.on('set-locale', (event, arg) => {
+        formatMessage.setup({locale: arg});
+    });
+}
 
 
 // start loading initial project data before the GUI needs it so the load seems faster
@@ -611,18 +625,20 @@ const initialProjectDataPromise = (async () => {
         const projectData = await promisify(fs.readFile)(projectPath, null);
         return projectData;
     } catch (e) {
-        dialog.showMessageBox(_windows.main, {
-            type: 'error',
-            title: 'Failed to load project',
-            message: `${formatMessage({
-                id: 'index.failedLoadProject',
-                default: 'Could not load project from file:',
-                description: 'prompt for failed to load project'
-            })}\n${projectPath}`,
-            detail: e.message
-        });
+        if (dialog) {
+            dialog.showMessageBox(_windows.main, {
+                type: 'error',
+                title: 'Failed to load project',
+                message: `${formatMessage({
+                    id: 'index.failedLoadProject',
+                    default: 'Could not load project from file:',
+                    description: 'prompt for failed to load project'
+                })}\n${projectPath}`,
+                detail: e.message
+            });
+        }
     }
     // load failed: initial project data undefined
 })(); // IIFE
 
-ipcMain.handle('get-initial-project-data', () => initialProjectDataPromise);
+if (ipcMain) ipcMain.handle('get-initial-project-data', () => initialProjectDataPromise);
