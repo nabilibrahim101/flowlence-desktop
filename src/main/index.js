@@ -642,3 +642,37 @@ const initialProjectDataPromise = (async () => {
 })(); // IIFE
 
 if (ipcMain) ipcMain.handle('get-initial-project-data', () => initialProjectDataPromise);
+
+// Handler to get external resources version
+if (ipcMain) {
+    ipcMain.handle('get-resource-version', () => {
+        try {
+            // Try cache path first, then builtin path
+            const userDataPath = app.getPath('userData');
+            const cacheConfigPath = path.join(userDataPath, 'Data', 'external-resources', 'config.json');
+
+            let configPath;
+            if (fs.existsSync(cacheConfigPath)) {
+                configPath = cacheConfigPath;
+            } else {
+                // Use builtin resources path
+                let appPath = app.getAppPath();
+                if (appPath.search(/app/g) !== -1 || appPath.search(/main/g) !== -1) {
+                    appPath = path.join(appPath, '../../');
+                } else {
+                    appPath = path.join(appPath, '../');
+                }
+                configPath = path.join(appPath, 'external-resources', 'config.json');
+            }
+
+            if (fs.existsSync(configPath)) {
+                const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+                return config.version || 'Unknown';
+            }
+            return 'Unknown';
+        } catch (e) {
+            console.warn('Failed to get resource version:', e);
+            return 'Unknown';
+        }
+    });
+}

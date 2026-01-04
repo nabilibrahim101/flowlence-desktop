@@ -23,20 +23,29 @@ a:active, a:hover {
 }
 
 .aboutLogo {
-    max-width: 10rem;
-    max-height: 10rem;
-    margin: 1.5rem 1.5rem 0 1.5rem;
+    max-width: 6rem;
+    max-height: 6rem;
+    margin: 1rem 1rem 0 1rem;
 }
 
 .aboutText {
-    margin: 1.5rem;
+    margin: 1rem;
+}
+
+.aboutTitle {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    white-space: nowrap;
 }
 
 .aboutDetails {
-    font-size: x-small;
+    font-size: small;
     text-align:left;
     margin:auto;
+}
 
+.aboutDetails td {
+    padding: 0.1rem 0.5rem;
 }
 
 .aboutFooter {
