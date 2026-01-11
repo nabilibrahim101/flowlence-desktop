@@ -37,3 +37,5 @@ npm-*
 # Build artifacts
 compile_log.txt
 nul
+.vs/
+compile-with-memory.bat
