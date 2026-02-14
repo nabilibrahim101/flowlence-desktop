@@ -14,7 +14,7 @@ const PrivacyElement = () => (
                 href="https://flowlence.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-            >Flowlence Desktop</a>&rdquo;), how we use, process, and share it, and what we&apos;re doing to keep it safe. It
+            >Flowlence Code</a>&rdquo;), how we use, process, and share it, and what we&apos;re doing to keep it safe. It
             also tells you about your rights and choices with respect to your Personal Information, and how you can <a
                 href="https://flowlence.com/contact-us/"
                 target="_blank"
@@ -24,19 +24,19 @@ const PrivacyElement = () => (
         <h2>What Information Does Flowlence Collect About Me?</h2>
         <p>
             For the purpose of this Privacy Policy, &ldquo;Information&rdquo; means any information relating to an
-            identified or identifiable individual. The Flowlence Desktop automatically collects and stores locally the
+            identified or identifiable individual. The Flowlence Code automatically collects and stores locally the
             following Information through its telemetry system: the title of your project in text form, language
-            setting, time zone and events related to your use of the Flowlence Desktop (namely when the Flowlence Desktop was
+            setting, time zone and events related to your use of the Flowlence Code (namely when the Flowlence Code was
             opened and closed, if a project file has been loaded or saved, or if a new project is created). If you
-            choose to turn on the telemetry sharing feature, the Flowlence Desktop will transmit this information to Flowlence.
-            Projects created in the Flowlence Desktop are not transmitted to or accessible by Flowlence.
+            choose to turn on the telemetry sharing feature, the Flowlence Code will transmit this information to Flowlence.
+            Projects created in the Flowlence Code are not transmitted to or accessible by Flowlence.
         </p>
         <h2>How Does Flowlence Use My Information?</h2>
         <p>We use this Information for the following purposes:</p>
         <ul>
             <li>
-                <b>Analytics and Improving the Flowlence Desktop</b> - We use the Information to analyze use of the Flowlence
-                App and to enhance your learning experience on the Flowlence Desktop.
+                <b>Analytics and Improving the Flowlence Code</b> - We use the Information to analyze use of the Flowlence
+                App and to enhance your learning experience on the Flowlence Code.
             </li>
             <li>
                 <b>Legal</b> - We may use your Information to enforce our <a
@@ -44,7 +44,7 @@ const PrivacyElement = () => (
                     target="_blank"
                     rel="noopener noreferrer"
                 >Terms of Use</a>, to defend our legal rights, and to comply with our legal obligations and internal
-                policies. We may do this by analyzing your use of the Flowlence Desktop.
+                policies. We may do this by analyzing your use of the Flowlence Code.
             </li>
         </ul>
         <h2>What Are The Legal Grounds For Processing Your Information?</h2>
@@ -52,15 +52,15 @@ const PrivacyElement = () => (
             If you are located in the European Economic Area, the United Kingdom or Switzerland, we only process your
             Information based on a valid legal ground. A &ldquo;legal ground&rdquo; is a reason that justifies our use
             of your Information. In this case, we or a third party have a legitimate interest in using your Information
-            (if you choose to allow the Flowlence Desktop to send the Flowlence team your Information) to create, analyze and
+            (if you choose to allow the Flowlence Code to send the Flowlence team your Information) to create, analyze and
             share your aggregated or de-identified Information for research purposes, to analyze and enhance your
-            learning experience on the Flowlence Desktop and otherwise ensure and improve the safety, security, and
-            performance of the Flowlence Desktop. We only rely on our or a third party’s legitimate interests to process your
+            learning experience on the Flowlence Code and otherwise ensure and improve the safety, security, and
+            performance of the Flowlence Code. We only rely on our or a third party’s legitimate interests to process your
             Information when these interests are not overridden by your rights and interests.
         </p>
         <h2>How Does Flowlence Share My Information?</h2>
         <p>
-            We disclose information that we collect through the Flowlence Desktop to third parties in the following
+            We disclose information that we collect through the Flowlence Code to third parties in the following
             circumstances:
         </p>
         <ul>
@@ -169,7 +169,7 @@ const PrivacyElement = () => (
         <h2>How Does Flowlence Protect My Information?</h2>
         <p>
             Flowlence has in place administrative, physical, and technical procedures that are intended to protect the
-            Information we collect on the Flowlence Desktop against accidental or unlawful destruction, accidental loss,
+            Information we collect on the Flowlence Code against accidental or unlawful destruction, accidental loss,
             unauthorized alteration, unauthorized disclosure or access, misuse, and any other unlawful form of
             processing of the Information. However, as effective as these measures are, no security system is
             impenetrable. We cannot completely guarantee the security of our databases, nor can we guarantee that the
@@ -190,7 +190,7 @@ const PrivacyElement = () => (
             We review our Privacy Policy on a periodic basis, and we may modify our policies as appropriate. We will
             notify you of any material changes. We encourage you to review our Privacy Policy on a regular basis. The
             &ldquo;Last Updated&rdquo; date at the top of this page indicates when this Privacy Policy was last
-            revised. Your continued use of the Flowlence Desktop following these changes means that you accept the revised
+            revised. Your continued use of the Flowlence Code following these changes means that you accept the revised
             Privacy Policy.
         </p>
         <h2>Contact Us</h2>

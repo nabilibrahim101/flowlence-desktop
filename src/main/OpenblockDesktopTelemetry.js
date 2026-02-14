@@ -19,7 +19,7 @@ const EVENT_TEMPLATE = {
     }
 };
 
-const APP_ID = 'flowlence-desktop';
+const APP_ID = 'flowlence-code';
 const getAppVersion = () => {
     try {
         return app.getVersion();

@@ -1,7 +1,7 @@
 {
   "name": "flowlence-desktop",
-  "productName": "Flowlence Desktop",
-  "description": "Flowlence Desktop - Block-based coding for IoT and Robotics",
+  "productName": "Flowlence Code",
+  "description": "Flowlence Code - Block-based coding for IoT and Robotics",
   "author": "Flowlence",
   "version": "1.0.2",
   "license": "MIT",

@@ -415,13 +415,13 @@ const createMainWindow = () => {
             type: 'question',
             message: formatMessage({
                 id: 'index.questionLeave',
-                default: 'Leave Flowlence Desktop?',
-                description: 'prompt for leave Flowlence Desktop'
+                default: 'Leave Flowlence Code?',
+                description: 'prompt for leave Flowlence Code'
             }),
             detail: formatMessage({
                 id: 'index.questionLeaveDetail',
                 default: 'Any unsaved changes will be lost.',
-                description: 'detail prompt for leave Flowlence Desktop'
+                description: 'detail prompt for leave Flowlence Code'
             }),
             buttons: [
                 formatMessage({

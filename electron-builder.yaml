@@ -3,17 +3,17 @@ directories:
   output: dist
 extraFiles: ['LICENSE', 'LICENSE.ScratchFoundation', 'TRADEMARK', "tools", "external-resources", 'firmwares', "drivers"]
 
-appId: com.flowlence.desktop
-productName: "Flowlence Desktop"
+appId: com.flowlence.code
+productName: "Flowlence Code"
 publish:
   - provider: github
     owner: nabilibrahim101
     repo: flowlence-desktop
-artifactName: "Flowlence_Desktop_v${version}_${os}_${arch}.${ext}"
+artifactName: "Flowlence_Code_v${version}_${os}_${arch}.${ext}"
 
 fileAssociations:
   ext: ob
-  name: Flowlence Desktop project file
+  name: Flowlence Code project file
   role: Editor
   icon: buildResources/FlowlenceFile.ico
 
@@ -29,26 +29,26 @@ mac:
         This app requires microphone access when recording sounds or detecting loudness.
   gatekeeperAssess: true
   hardenedRuntime: true
-  icon: buildResources/FlowlenceDesktop.icns
+  icon: buildResources/FlowlenceCode.icns
   provisioningProfile: embedded.provisionprofile
   target:
     - dmg
     # - mas
 dmg:
-  title: "Flowlence_Desktop_${version}"
+  title: "Flowlence_Code_${version}"
   format: UDRO
 # mas:
 #   category: public.app-category.education
 #   entitlements: buildResources/entitlements.mas.plist
 #   entitlementsInherit: buildResources/entitlements.mas.inherit.plist
 #   hardenedRuntime: false
-#   icon: buildResources/FlowlenceDesktop.icns
+#   icon: buildResources/FlowlenceCode.icns
 # masDev:
 #   type: development
 #   provisioningProfile: mas-dev.provisionprofile
 
 win:
-  icon: buildResources/FlowlenceDesktop.ico
+  icon: buildResources/FlowlenceCode.ico
   target:
     # - appx
     - nsis
@@ -69,8 +69,8 @@ linux:
   desktop:
     entry:
       Encoding: UTF-8
-      Name: Flowlence Desktop
-      Icon: flowlence-desktop
+      Name: Flowlence Code
+      Icon: flowlence-code
       Type: Application
       Terminal: false
   target:
