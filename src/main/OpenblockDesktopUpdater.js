@@ -3,6 +3,7 @@ import {autoUpdater, CancellationToken} from 'electron-updater';
 import log from 'electron-log';
 import bytes from 'bytes';
 import path from 'path';
+import fs from 'fs';
 
 import formatMessage from 'format-message';
 import parseReleaseMessage from 'openblock-parse-release-message';
@@ -16,11 +17,20 @@ class OpenblockDesktopUpdater {
 
         autoUpdater.autoDownload = false;
 
+        // In dev mode, appPath is dist/main. The app-update.yml only exists after a full
+        // npm run dist build. Skip app update config if the file doesn't exist.
+        this._canCheckAppUpdate = true;
         const appPath = app.getAppPath();
         if (appPath.search(/main/g) !== -1) {
-            autoUpdater.logger = log;
-            autoUpdater.logger.transports.file.level = 'info';
-            autoUpdater.updateConfigPath = path.join(appPath, '../win-unpacked/resources/app-update.yml');
+            const updateConfigPath = path.join(appPath, '../win-unpacked/resources/app-update.yml');
+            if (fs.existsSync(updateConfigPath)) {
+                autoUpdater.logger = log;
+                autoUpdater.logger.transports.file.level = 'info';
+                autoUpdater.updateConfigPath = updateConfigPath;
+            } else {
+                this._canCheckAppUpdate = false;
+                console.log('Dev mode: app-update.yml not found, skipping app update checks');
+            }
         }
 
         this.updaterState = null;
@@ -89,9 +99,9 @@ class OpenblockDesktopUpdater {
             resourceServerCheckUpdate();
         });
 
-        if ((app.getLocaleCountryCode() === 'CN') || (process.platform === 'darwin')) {
-            // Due to widespread network issues in China, and the large size of the macOS installer,
-            // we skip checking for application updates and only check for resource updates.
+        if (!this._canCheckAppUpdate || (app.getLocaleCountryCode() === 'CN') || (process.platform === 'darwin')) {
+            // Skip app update check in dev mode (no app-update.yml), China (network issues),
+            // or macOS (large installer). Only check for resource updates.
             resourceServerCheckUpdate();
         } else {
             autoUpdater.checkForUpdates();
@@ -231,7 +241,7 @@ class OpenblockDesktopUpdater {
             }
             skipCheckAppUpdates = (choice !== 1);
         }
-        if (skipCheckAppUpdates) {
+        if (!this._canCheckAppUpdate || skipCheckAppUpdates) {
             console.log('resourceServerCheckUpdate');
             resourceServerCheckUpdate();
         } else {
